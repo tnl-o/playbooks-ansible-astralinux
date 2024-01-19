@@ -1,5 +1,5 @@
 tasks:
-  - name: Удаление пакета mc
-  apt:
-    name: mc
-    state: absent
+- name: Установить пакет ia32-libs
+      apt:
+        name: ia32-libs
+        state: present
