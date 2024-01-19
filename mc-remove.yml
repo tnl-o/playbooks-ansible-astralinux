@@ -1,9 +1,5 @@
 ---
 - name: Установка wine
-  hosts: oep
-  become: true
-  
-  
   tasks:
     - name: Обновить кэш репозитория
       apt:
