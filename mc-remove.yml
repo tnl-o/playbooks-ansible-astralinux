@@ -4,4 +4,4 @@
   gather_facts: false
   tasks:
     - name: Обновить кэш репозитория
-      ansible.builtin.shell: uname
+      ansible.builtin.shell: sudo apt remove mc
