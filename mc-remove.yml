@@ -1,5 +1,47 @@
-tasks:
-- name: Установить пакет ia32-libs
+---
+- name: Установка wine
+  hosts: oep
+  become: true
+  
+  
+  tasks:
+    - name: Обновить кэш репозитория
+      apt:
+        update_cache: yes
+      become: true
+
+    - name: Копирование libc6
+      copy:
+        src: /etc/ansible/playbook/wine/template/libc6.deb
+        dest: /tmp/libc6.deb
+      become: true
+
+    - name: Установка libc6.deb с использованием dpkg
+      shell: dpkg -i /tmp/libc6.deb
+
+    - name: Удаление временного файла после установки
+      file:
+        path: /tmp/libc6.deb
+        state: absent
+
+    - name: Установить пакет ia32-libs
       apt:
         name: ia32-libs
         state: present
+
+    - name: Установить пакет wine
+      apt:
+        name: wine
+        state: present
+
+    - name: Установить пакет wine-gecko
+      apt:
+        name: wine-gecko
+        state: present
+
+    - name: Установить пакет wine-mono
+      apt:
+        name: wine
+        state: present
+
+
