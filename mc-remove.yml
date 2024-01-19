@@ -3,11 +3,4 @@
   hosts: astralinux
   tasks:
     - name: Обновить кэш репозитория
-      apt:
-        update_cache: yes
-      become: true
-      
-    - name: Установить пакет ia32-libs
-      apt:
-        name: mc
-        state: absent
+      ansible.builtin.shell: uname
