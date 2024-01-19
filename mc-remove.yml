@@ -1,6 +1,7 @@
 ---
 - name: Удаление пакета mc
   hosts: astralinux
+  gather_facts: false
   tasks:
     - name: Обновить кэш репозитория
       ansible.builtin.shell: uname
