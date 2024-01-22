@@ -2,6 +2,8 @@
 - name: Удаление пакета mc
   hosts: astralinux
   gather_facts: false
+
   tasks:
-    - name: Обновить кэш репозитория
-      ansible.builtin.shell: sudo apt remove mc
+- name: Install the package "mc"
+  ansible.builtin.apt:
+    name: mc
